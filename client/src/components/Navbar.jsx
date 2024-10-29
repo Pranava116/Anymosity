@@ -1,13 +1,28 @@
-import React from 'react'
+// src/Navbar.js
 
-function Navbar() {
-  return (
-    <div className='main-navbar'>
-        <div className='navbar'>
-            <h2>****</h2>
-        </div>
-    </div>
-  )
-}
+import React, { useState } from 'react';
+import './Navbar.css'; // Create a CSS file for styling
 
-export default Navbar
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <nav className="navbar">
+            <div className="logo">MyLogo</div>
+            <div className="menu-icon" onClick={toggleMenu}>
+                &#9776; {/* Hamburger icon */}
+            </div>
+            <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+                <li><a href="#">Login/Register</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    );
+};
+
+export default Navbar;
+
