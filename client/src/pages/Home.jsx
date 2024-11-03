@@ -5,10 +5,12 @@ import FirstView from '../components/FirstView'
 function Home() {
   return (
     <div>
-      <Navbar/>
+      <Navbar  page="Login/Register" url = "/auth"/>
       <FirstView/>
     </div>
   )
 }
+
+
 
 export default Home

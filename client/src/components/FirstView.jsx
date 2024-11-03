@@ -9,7 +9,7 @@ function FirstView() {
                 <p>Discover your community on [Your App Name]! Share insights, engage in lively discussions, and connect with like-minded individuals across diverse topics. Join us and be part of the conversation</p>
             </div>
             <div className='btn-firstview'>
-                <button className='btn-firstview-login'><a href='/'>Continue</a></button>
+                <button className='btn-firstview-login'><a href='/auth'>Continue</a></button>
             </div>
         </div>
     </div>

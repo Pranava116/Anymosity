@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './Navbar.css'; // Create a CSS file for styling
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -17,8 +17,8 @@ const Navbar = () => {
                 &#9776; {/* Hamburger icon */}
             </div>
             <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-                <li><a href="#">Login/Register</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href={props.url}>{props.page}</a></li>
+                <li><a href='/'>Contact</a></li>
             </ul>
         </nav>
     );
