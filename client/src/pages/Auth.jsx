@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import './Auth.css'
+import {useCookies} from 'react-cookie'
+import { useNavigate } from 'react-router-dom'
 function Auth() {
   return (
     <div className='main-auth-wrapper'>
@@ -16,7 +18,8 @@ function Auth() {
 function Login(){
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-
+  const [_, setCookies] = useCookies(["access_token"])
+  const navigate = useNavigate()
   function handleUsernameChange(e){
     setUsername(e.target.value)
 
@@ -28,7 +31,13 @@ function Login(){
   async function handleClick(e){
     e.preventDefault()
     const response = await axios.post("http://localhost:5000/auth/login", {username: username, password: password})
-    console.log(response)
+    alert(response.data.message)
+    setCookies("access_token", response.data.token)
+    window.localStorage.setItem("userID", response.data.userID)
+    
+    navigate("/mainpage")
+    setUsername("")
+    setPassword("")
   }
     return(
       <div className='main-login-wrapper'>
@@ -56,7 +65,9 @@ function Register(){
      async function handleClick(e){
       e.preventDefault()
       const response = await axios.post("http://localhost:5000/auth/register", {username: username, password: password})
-      console.log(response.data.message)
+      alert(response.data.message)
+      setPassword("")
+      setUsername("")
     }
 
     

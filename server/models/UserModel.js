@@ -5,4 +5,4 @@ const UserModel = mongoose.Schema({
     "password": String,
 })
 const users = mongoose.model("users", UserModel)
-export default users
+export default users 
