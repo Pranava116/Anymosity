@@ -62,7 +62,7 @@ body {
         left: 0;
         background-color: #222831;
     }
-
+ 
     .nav-links.active {
         display: flex;
     }

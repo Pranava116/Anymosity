@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 function Auth() {
   return (
     <div className='main-auth-wrapper'>
-        <Navbar page="Home" url = "/"/>
+        <Navbar page="Home" url = "/" contact="Contact Us"/>
         <div className='login-reg-wrapper'>
         <Login/>
         <Register/>
@@ -34,7 +34,7 @@ function Login(){
     alert(response.data.message)
     setCookies("access_token", response.data.token)
     window.localStorage.setItem("userID", response.data.userID)
-    
+     
     navigate("/mainpage")
     setUsername("")
     setPassword("")

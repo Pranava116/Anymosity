@@ -1,0 +1,44 @@
+.card-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-card{
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    width: 100%;
+    margin: 25px;
+    border-radius: 25px;
+}
+.title-tag{
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.desc-tag{
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.date-tag{
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.venue-tag{
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.event-info{
+    width: 150px;
+    height: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #00ADB5;
+    transition: transform 0.3s;
+}
