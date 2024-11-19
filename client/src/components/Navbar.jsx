@@ -18,7 +18,7 @@ const Navbar = (props) => {
             </div>
             <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
                 <li><a href={props.url}>{props.page}</a></li>
-                <li><a href='/'>{props.contact}</a></li>
+                <li><a href={props.contactURL}>{props.contact}</a></li>
             </ul>
         </nav>
     );

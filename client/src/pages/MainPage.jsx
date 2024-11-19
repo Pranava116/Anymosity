@@ -7,7 +7,7 @@ function MainPage() {
   return (
 	<div className = "Main-page-wrapper">
     <div className='main-page-navbar'>
-      <Navbar page="Your Events" contact="Organize"/>
+      <Navbar page="Your Events" contact="Organize" url = "/" contactURL = "/organize" />
     </div>
     <Card/>
 	</div>
