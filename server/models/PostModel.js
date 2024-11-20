@@ -5,7 +5,7 @@ const PostModel  = mongoose.Schema({
 	"desc": String,
 	"venue" : String,
 	"date": Date,
-	"userID": mongoose.Types.ObjectId
+	"userID": {type: mongoose.Schema.ObjectId, reff : "users"}
 }) 
 const postEvent = mongoose.model("postEvent", PostModel)
 export default postEvent

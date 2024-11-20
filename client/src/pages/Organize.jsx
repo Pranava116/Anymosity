@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import './Organize.css'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
+import {useNavigate } from 'react-router-dom'
 function Organize() {
-
+    const navigate = useNavigate()
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [date, setDate] = useState("")
@@ -21,7 +22,14 @@ function Organize() {
         setVenue(e.target.value)
     }
     async function handleClick(e){
-        const response = axios.post
+        e.preventDefault()
+        const response = await axios.post("http://localhost:5000/main/organisePost", {title, desc, date, venue})
+        alert(response.data.message)
+        setDate("")
+        setDesc("")
+        setTitle("")
+        setVenue("")
+        navigate("/mainpage")
     }
   return (
     <div className='main-organise-page'>

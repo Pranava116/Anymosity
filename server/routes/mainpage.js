@@ -1,15 +1,17 @@
 import express from 'express'
 import cors from 'cors'
 import postEvent from '../models/PostModel.js'
+import mongoose from 'mongoose'
 const router = express.Router()
 router.use(express.json())
 router.use(cors())
 
 router.get("/getevents", async(req, res) => {
     try {
-        
+        const ResponseCard = await postEvent.find({})
+        return res.json(ResponseCard)
     } catch (error) {
-        
+        console.log(error)
     }
 })
 router.post("/organisePost", async(req, res) => {
@@ -22,9 +24,9 @@ router.post("/organisePost", async(req, res) => {
             venue: venue
         })
         await PostEvent.save()
-        
+        return res.json({message: "Added successfully"})
     } catch (error) {
-        
+        console.log(error)
     }
 })
 

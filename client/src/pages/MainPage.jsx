@@ -1,9 +1,11 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import './MainPage.css'
 import Card from '../components/Card.jsx'
 function MainPage() {
+  const [cards, setCards] = useState([])
+  
   return (
 	<div className = "Main-page-wrapper">
     <div className='main-page-navbar'>
