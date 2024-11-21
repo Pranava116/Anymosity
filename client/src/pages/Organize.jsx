@@ -3,12 +3,14 @@ import './Organize.css'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import {useNavigate } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
 function Organize() {
     const navigate = useNavigate()
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [date, setDate] = useState("")
     const [venue, setVenue] = useState("")
+    const [cookies, _] = useCookies(["access_token"])
     function handleTitle(e){
         setTitle(e.target.value)
     }
@@ -23,8 +25,12 @@ function Organize() {
     }
     async function handleClick(e){
         e.preventDefault()
-        const response = await axios.post("http://localhost:5000/main/organisePost", {title, desc, date, venue})
+        const response = await axios.post("http://localhost:5000/main/organisePost", {title, desc, date, venue}, {headers : {authorization: cookies.access_token}})
         alert(response.data.message)
+        console.log(response.response)
+        if(response.data.error){
+            navigate("/auth")
+        }
         setDate("")
         setDesc("")
         setTitle("")

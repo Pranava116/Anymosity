@@ -31,20 +31,24 @@ function Login(){
   async function handleClick(e){
     e.preventDefault()
     const response = await axios.post("http://localhost:5000/auth/login", {username: username, password: password})
-    alert(response.data.message)
     setCookies("access_token", response.data.token)
     window.localStorage.setItem("userID", response.data.userID)
-     
+   if(response.data.userID){
     navigate("/mainpage")
+   }
+   else{
+    alert(response.data.message)
     setUsername("")
     setPassword("")
+   }
+    
   }
     return(
       <div className='main-login-wrapper'>
         <form className='register-form'>
                 <h1>Login</h1>
-                <input className='username' placeholder='Username' onChange={handleUsernameChange}/>
-                <input className='password' placeholder='Password' onChange={handlePasswordChange}/>
+                <input className='username' placeholder='Username' onChange={handleUsernameChange} value={username}/>
+                <input className='password' placeholder='Password' onChange={handlePasswordChange} value={password}/>
                 <button className='submit' onClick={handleClick}>Submit</button>
             </form>
       </div>

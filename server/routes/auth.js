@@ -43,8 +43,10 @@ router.post("/login", async(req, res) => {
         if(!isValidPassword){
             return res.json({message: "The password is wrong"})
         }
-        const token = jwt.sign({UserID: user._id}, "fun", {expiresIn: '1h'})
+        else{
+        const token = jwt.sign({UserID: user._id}, "secret", {expiresIn: '1h'})
         res.json({token, userID: user._id})
+        }
     } catch (error) {
         console.log(error)
     }

@@ -2,11 +2,12 @@ import express from 'express'
 import cors from 'cors'
 import postEvent from '../models/PostModel.js'
 import mongoose from 'mongoose'
+import { verifyToken } from '../middleware/AuthMiddleware.js'
 const router = express.Router()
 router.use(express.json())
 router.use(cors())
 
-router.get("/getevents", async(req, res) => {
+router.get("/getevents",verifyToken, async(req, res) => {
     try {
         const ResponseCard = await postEvent.find({})
         return res.json(ResponseCard)
@@ -14,7 +15,7 @@ router.get("/getevents", async(req, res) => {
         console.log(error)
     }
 })
-router.post("/organisePost", async(req, res) => {
+router.post("/organisePost",verifyToken,  async(req, res) => {
     try {
         const {title, desc, date, venue} = req.body;
         const PostEvent = new postEvent({
