@@ -9,6 +9,8 @@
     flex-direction: column;
     width: 100%;
     margin: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
     border-radius: 25px;
 }
 .title-tag{

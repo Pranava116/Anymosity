@@ -7,7 +7,7 @@ const router = express.Router()
 router.use(express.json())
 router.use(cors())
 
-router.get("/getevents",verifyToken, async(req, res) => {
+router.get("/getevents", async(req, res) => {
     try {
         const ResponseCard = await postEvent.find({})
         return res.json(ResponseCard)

@@ -27,8 +27,8 @@ function Organize() {
         e.preventDefault()
         const response = await axios.post("http://localhost:5000/main/organisePost", {title, desc, date, venue}, {headers : {authorization: cookies.access_token}})
         alert(response.data.message)
-        console.log(response.response)
-        if(response.data.error){
+        alert(response.data.error)
+        if(response.data.error == "Access denied"){
             navigate("/auth")
         }
         setDate("")
