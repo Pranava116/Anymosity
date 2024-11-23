@@ -25,7 +25,8 @@ function Organize() {
     }
     async function handleClick(e){
         e.preventDefault()
-        const response = await axios.post("http://localhost:5000/main/organisePost", {title, desc, date, venue}, {headers : {authorization: cookies.access_token}})
+        const  userID = window.localStorage.getItem("userID")
+        const response = await axios.post("http://localhost:5000/main/organisePost", {title, desc, date, venue, userID}, {headers : {authorization: cookies.access_token}})
         alert(response.data.message)
         alert(response.data.error)
         if(response.data.error == "Access denied"){

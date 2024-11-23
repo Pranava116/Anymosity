@@ -21,10 +21,10 @@ function MainPage() {
     <div className='main-page-navbar'>
       <Navbar page="Your Events" contact="Organize" url = "/" contactURL = "/organize" />
     </div>
-    {cards.map(({title, desc, date, venue}) =>{
+    {cards.map(({title, desc, date, venue, _id}) =>{
       return(
         <div>
-          <Card title={title} desc={desc} date={date} venue={venue}/>
+          <Card title={title} desc={desc} date={date} venue={venue} _id = {_id}/>
         </div>
       )
     })}

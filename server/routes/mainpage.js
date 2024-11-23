@@ -7,6 +7,8 @@ const router = express.Router()
 router.use(express.json())
 router.use(cors())
 
+
+
 router.get("/getevents", async(req, res) => {
     try {
         const ResponseCard = await postEvent.find({})
@@ -17,12 +19,13 @@ router.get("/getevents", async(req, res) => {
 })
 router.post("/organisePost",verifyToken,  async(req, res) => {
     try {
-        const {title, desc, date, venue} = req.body;
+        const {title, desc, date, venue, userID} = req.body;
         const PostEvent = new postEvent({
             title: title,
             desc: desc,
             date: date,
-            venue: venue
+            venue: venue,
+            userID: userID
         })
         await PostEvent.save()
         return res.json({message: "Added successfully"})
