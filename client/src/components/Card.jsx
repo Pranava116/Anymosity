@@ -17,7 +17,7 @@ function Card(props) {
             <h3 className='desc-tag'>{props.desc}</h3>
             <h3 className='date-tag'>{props.date}</h3>
             <h3 className='venue-tag'>{props.venue}</h3>
-            <Link to={`/mainpage/${props._id}`} ><button className='event-info' id={props._id} onClick={handleClick} >See More  </button></Link>
+            <Link to={`/mainpage/${props._id}`} className='link-btn' ><button className='event-info' id={props._id} onClick={handleClick} >See More  </button></Link>
         </div> 
     </div>
   )

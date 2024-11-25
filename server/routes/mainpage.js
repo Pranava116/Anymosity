@@ -34,10 +34,10 @@ router.post("/organisePost",verifyToken,  async(req, res) => {
     }
 })
 
-router.put('/:id',verifyToken, async(req, res)=>{
+router.put('/:id', async(req, res)=>{
     const {id} = req.params;
     const response = await postEvent.find({_id: id})
-    console.log(headers)
+
     if(!response){
         return res.send("The Post has been removed ")
     }

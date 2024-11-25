@@ -44,3 +44,7 @@
     background-color: #00ADB5;
     transition: transform 0.3s;
 }
+.link-btn{
+    background-color: white;
+    border-radius: 25px;
+}
